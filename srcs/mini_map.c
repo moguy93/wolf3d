@@ -6,7 +6,7 @@
 /*   By: moguy <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/26 03:02:13 by moguy             #+#    #+#             */
-/*   Updated: 2020/03/03 18:05:31 by moguy            ###   ########.fr       */
+/*   Updated: 2020/03/03 18:50:04 by moguy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ static inline void	draw_circle(t_env *env)
 		while (x <= env->mini_circle)
 		{
 			if ((x * x) + tmp[0] <= size2)
-				fill_pixel(env, 0xDD,tmp[2] + x, tmp[1] + y);
+				fill_pixel(env, 0xDD, tmp[2] + x, tmp[1] + y);
 			x++;
 		}
 		y++;

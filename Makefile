@@ -6,7 +6,7 @@
 #    By: moguy <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/02/22 01:19:35 by moguy             #+#    #+#              #
-#    Updated: 2020/03/02 15:15:54 by moguy            ###   ########.fr        #
+#    Updated: 2020/03/03 18:51:29 by moguy            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -78,8 +78,8 @@ $(LIB) : $(LIB_PATH)
 	@make -C $(LIB_PATH)
 
 $(NAME) : $(LIB) $(OBJS)
-	@$(CC) $(CFLAGS) -o $(NAME) -I $(INC_PATH) $(OBJS) -framework OpenGL \
-		-framework Appkit -lpthread $(LIB) $(MLX)
+	@$(CC) $(CFLAGS) -o $(NAME) -I$(INC_PATH) $(OBJS) \
+		-framework OpenGL -framework Appkit -lpthread $(LIB) $(MLX)
 	@echo "$(GRE)Done !$(DEF)"
 
 $(OBJS_PATH)%.o : $(SRCS_PATH)%.c $(INC)
