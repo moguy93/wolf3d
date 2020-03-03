@@ -6,7 +6,7 @@
 #    By: moguy <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/02/22 01:19:35 by moguy             #+#    #+#              #
-#    Updated: 2020/03/01 16:19:56 by moguy            ###   ########.fr        #
+#    Updated: 2020/03/02 15:15:54 by moguy            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,8 +49,7 @@ SRCS_NAME=deal.c\
 		  threader.c
 
 INC_PATH=includes/
-INC_NAME=wolf3d.h\
-		 libft.h
+INC_NAME=wolf3d.h
 
 MLX_PATH=/usr/local/lib/
 MLX_NAME=libmlx.a
@@ -86,7 +85,7 @@ $(NAME) : $(LIB) $(OBJS)
 $(OBJS_PATH)%.o : $(SRCS_PATH)%.c $(INC)
 	@echo "Making $(ORG)Wolf3D$(DEF)..."
 	@mkdir -p $(OBJS_PATH)
-	@$(CC) $(CFLAGS) -c $(SRCS) -I $(INC_PATH)
+	@$(CC) $(CFLAGS) -c $(SRCS) -I$(INC_PATH) -I$(LIB_PATH)
 	@mv $(OBJS_NAME) $(OBJS_PATH)
 
 clean :

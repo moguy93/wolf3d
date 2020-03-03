@@ -6,7 +6,7 @@
 /*   By: moguy <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/23 03:15:43 by moguy             #+#    #+#             */
-/*   Updated: 2020/03/01 18:35:49 by moguy            ###   ########.fr       */
+/*   Updated: 2020/03/03 16:57:13 by moguy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ static inline void	draw_column(t_env *env, t_cam *c, int x_s,
 	int		color;
 
 	y = -1;
-	c->ceiling = (int)(env->scr_height2 - (float)env->scr_height / dist_to_wal);
-	c->floor = env->scr_height - c->ceiling;
-	while (++y < env->scr_height)
+	c->ceiling = (int)(env->scr_height2 - (float)SCR_H / dist_to_wal);
+	c->floor = SCR_H - c->ceiling;
+	while (++y < SCR_H)
 	{
 		if (y < c->ceiling)
 			color = color_ceiling(env, y);
@@ -93,10 +93,10 @@ static inline void	raycasting_loop(t_env *env, t_cam *c, int x_s, int x_e)
 	float	ray_angle;
 	float	dist_to_wall;
 
-	while (x_s < x_e && x_s < env->scr_width)
+	while (x_s < x_e && x_s < SCR_W)
 	{
 		ray_angle = (c->angle - c->fov2) + (
-				((float)x_s / (float)env->scr_width) * c->fov);
+				((float)x_s / (float)SCR_W) * c->fov);
 		dist_to_wall = 0;
 		c->hitw = false;
 		c->eye_x = sinf(ray_angle);

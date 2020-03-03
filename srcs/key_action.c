@@ -6,7 +6,7 @@
 /*   By: moguy <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/23 07:16:49 by moguy             #+#    #+#             */
-/*   Updated: 2020/03/01 17:36:10 by moguy            ###   ########.fr       */
+/*   Updated: 2020/03/03 18:01:13 by moguy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ static inline void	go_right(t_env *env)
 {
 	env->cam.x += cosf(env->cam.angle) * ((env->speed) ? 0.2f : 0.1f);
 	env->cam.y -= sinf(env->cam.angle) * ((env->speed) ? 0.2f : 0.1f);
-	if (env->cam.x < 0 || env->cam.x >= env->map_width
-			|| env->cam.y >= env->map_height || env->cam.y < 0
+	if (env->cam.x < 0 || env->cam.y >= env->map_width
+			|| env->cam.x >= env->map_height || env->cam.y < 0
 			|| env->map[(int)env->cam.x][(int)env->cam.y] != '0')
 	{
 		env->cam.x -= cosf(env->cam.angle) * ((env->speed) ? 0.2f : 0.1f);
@@ -29,8 +29,8 @@ static inline void	go_left(t_env *env)
 {
 	env->cam.x -= cosf(env->cam.angle) * ((env->speed) ? 0.2f : 0.1f);
 	env->cam.y += sinf(env->cam.angle) * ((env->speed) ? 0.2f : 0.1f);
-	if (env->cam.x < 0 || env->cam.x >= env->map_width
-			|| env->cam.y >= env->map_height || env->cam.y < 0
+	if (env->cam.x < 0 || env->cam.y >= env->map_width
+			|| env->cam.x >= env->map_height || env->cam.y < 0
 			|| env->map[(int)env->cam.x][(int)env->cam.y] != '0')
 	{
 		env->cam.x += cosf(env->cam.angle) * ((env->speed) ? 0.2f : 0.1f);
@@ -42,8 +42,8 @@ static inline void	go_up(t_env *env)
 {
 	env->cam.x += sinf(env->cam.angle) * ((env->speed) ? 0.2f : 0.1f);
 	env->cam.y += cosf(env->cam.angle) * ((env->speed) ? 0.2f : 0.1f);
-	if (env->cam.x < 0 || env->cam.x >= env->map_width
-			|| env->cam.y >= env->map_height || env->cam.y < 0
+	if (env->cam.x < 0 || env->cam.y >= env->map_width
+			|| env->cam.x >= env->map_height || env->cam.y < 0
 			|| env->map[(int)env->cam.x][(int)env->cam.y] != '0')
 	{
 		env->cam.x -= sinf(env->cam.angle) * ((env->speed) ? 0.2f : 0.1f);
@@ -55,8 +55,8 @@ static inline void	go_down(t_env *env)
 {
 	env->cam.x -= sinf(env->cam.angle) * ((env->speed) ? 0.2f : 0.1f);
 	env->cam.y -= cosf(env->cam.angle) * ((env->speed) ? 0.2f : 0.1f);
-	if (env->cam.x < 0 || env->cam.x >= env->map_width
-			|| env->cam.y >= env->map_height || env->cam.y < 0
+	if (env->cam.x < 0 || env->cam.y >= env->map_width
+			|| env->cam.x >= env->map_height || env->cam.y < 0
 			|| env->map[(int)env->cam.x][(int)env->cam.y] != '0')
 	{
 		env->cam.x += sinf(env->cam.angle) * ((env->speed) ? 0.2f : 0.1f);

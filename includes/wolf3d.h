@@ -6,7 +6,7 @@
 /*   By: moguy <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/22 01:40:49 by moguy             #+#    #+#             */
-/*   Updated: 2020/03/01 19:22:14 by moguy            ###   ########.fr       */
+/*   Updated: 2020/03/02 17:36:43 by moguy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,20 +25,17 @@
 # define USAGE "./wolf3d file"
 # define MLX_ERR "MLX ERROR"
 
-# define MIN_SCR_W 100
-# define MIN_SCR_H 100
-# define MAX_SCR_W 1920
-# define MAX_SCR_H 1080
+# define SCR_W 1080
+# define SCR_H 720
+# define SCR_T 3110400
 # define MIN_MAP_W 1
 # define MIN_MAP_H 1
-# define MAX_MAP_W 1000
-# define MAX_MAP_H 1000
+# define MAX_MAP_W 150
+# define MAX_MAP_H 150
 # define EPSILON 0.005f
-# define DEPTH 25.0f
+# define DEPTH 20.0f
 # define FLOOR 0x000088
-# define MINIMAP_SIZE 6
-# define MINIMAP_SIZE4 2
-# define MAX_THREADS 20
+# define MAX_THREADS 8
 
 typedef enum		e_sprite_id
 {
@@ -98,10 +95,10 @@ typedef struct		s_env
 	char			**map;
 	pthread_t		thread[MAX_THREADS];
 	t_cam			cam;
-	int				scr_width;
 	int				scr_width_thread;
-	int				scr_height;
 	float			scr_height2;
+	int				minimap_size;
+	int				mini_circle;
 	int				map_width;
 	int				map_height;
 	int				cam_x;
