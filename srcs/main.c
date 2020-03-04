@@ -6,7 +6,7 @@
 /*   By: moguy <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/22 03:45:24 by moguy             #+#    #+#             */
-/*   Updated: 2020/03/02 17:07:18 by moguy            ###   ########.fr       */
+/*   Updated: 2020/03/04 14:20:18 by gedemais         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,9 @@ int		main(int argc, char **argv)
 	ft_memset(&env, 0, sizeof(t_env));
 	ft_memset(&mlx, 0, sizeof(t_mlx));
 	if (get_map(argv[1], &env))
+	{
 		return (1);
+	}
 	if (init_mlx(&env, &mlx))
 		return (error(MLX_ERR, NULL, &env));
 	env.mlx = &mlx;

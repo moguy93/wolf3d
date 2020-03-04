@@ -6,7 +6,7 @@
 #    By: moguy <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/02/22 01:19:35 by moguy             #+#    #+#              #
-#    Updated: 2020/03/03 18:51:29 by moguy            ###   ########.fr        #
+#    Updated: 2020/03/04 14:08:00 by gedemais         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -57,8 +57,7 @@ MLX_NAME=libmlx.a
 LIB_PATH=libft/
 LIB_NAME=libft.a
 
-OBJS_PATH=objs/
-OBJS_NAME=$(SRCS_NAME:.c=.o)
+OBJS=$(SRCS:.c=.o)
 
 SRCS=$(addprefix $(SRCS_PATH), $(SRCS_NAME))
 
@@ -67,8 +66,6 @@ INC=$(addprefix $(INC_PATH), $(INC_NAME))
 MLX=$(addprefix $(MLX_PATH), $(MLX_NAME))
 
 LIB=$(addprefix $(LIB_PATH), $(LIB_NAME))
-
-OBJS=$(addprefix $(OBJS_PATH), $(OBJS_NAME))
 
 .PHONY: all clean fclean re
 
@@ -82,14 +79,11 @@ $(NAME) : $(LIB) $(OBJS)
 		-framework OpenGL -framework Appkit -lpthread $(LIB) $(MLX)
 	@echo "$(GRE)Done !$(DEF)"
 
-$(OBJS_PATH)%.o : $(SRCS_PATH)%.c $(INC)
-	@echo "Making $(ORG)Wolf3D$(DEF)..."
-	@mkdir -p $(OBJS_PATH)
-	@$(CC) $(CFLAGS) -c $(SRCS) -I$(INC_PATH) -I$(LIB_PATH)
-	@mv $(OBJS_NAME) $(OBJS_PATH)
+$(SRCS_PATH)%.o : $(SRCS_PATH)%.c $(INC)
+	$(CC) $(FLAGS) -I$(INC_PATH) -I$(LIB_PATH) -o $@ -c $<
 
 clean :
-	@rm -rf $(OBJS_PATH)
+	@rm -rf $(OBJS)
 	@make -C $(LIB_PATH) clean
 
 fclean : clean
